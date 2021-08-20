@@ -1,0 +1,51 @@
+<!-- JavaScript: Nested For loops -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px solid;
+            font-size: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <p>
+        Koltuk sira sayisi:
+        <input type="text" name="name" id="textSatir">
+    </p>
+
+    <input type="button" value="Tablo Olustur" name="name" onclick="clicked()">
+    <div id="eklenecek">
+
+    </div>
+    <script>
+        function clicked() {
+            let koltukSiraSayisi = +document.getElementById("textSatir").value;
+            let harfler = ["A", "B", "C", "D"];
+            let table = document.createElement("table");
+
+            for (let i = 1; i <= koltukSiraSayisi; i++) {
+                let tr = document.createElement("tr");
+                for (let j = 0; j < harfler.length; j++) {
+                    let td = document.createElement("td");
+                    td.innerText = harfler[j] + i;
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            document.getElementById("eklenecek").appendChild(table);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!-- JavaScript: If - else if -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .alan {
+            border-radius: 20px;
+            border: 1px solid black;
+            padding: 15px;
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alan">
+        <input type="range" min="1" max="100" step="1" id="rangeStock" name="name" onchange="changeColor()">
+        <br>
+        Stok Durumu: <span id="spanStock"></span>
+    </div>
+    <script>
+        function changeColor() {
+            let rangeValue = document.getElementById("rangeStock").value;
+            let span = document.getElementById("spanStock");
+            span.innerText = rangeValue;
+            if (rangeValue <= 30) {
+                span.style.color = "red";
+
+            } else if (rangeValue <= 50) {
+                span.style.color = "black";
+            } else {
+                span.style.color = "green";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

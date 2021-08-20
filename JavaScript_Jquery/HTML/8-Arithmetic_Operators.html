@@ -1,0 +1,46 @@
+<!-- JavaScript: Arithmetic Operators -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="yuklendi()">
+    <input type="text" name="name" id="textS1">+
+    <input type="text" name="nane" id="textS2">=
+    <span id="total"></span>
+    <br>
+    <input type="button" name="name" value="Add" onclick="clicked()">
+    <script>
+        function yuklendi() {
+            let x = 10;
+            let y = 2;
+
+            let remainder = x % y;
+            console.log(remainder);
+
+            let counter = 0;
+            // counter = counter + 1;
+            // counter += 1;
+            // counter++;
+            // console.log(counter++);
+            console.log(++counter);
+            console.log(counter);
+        }
+
+        function clicked() {
+            let s1 = document.getElementById("textS1").value;
+            let s2 = document.getElementById("textS2").value;
+            // let total = s1 + s2; // boyle toplama yaparsan string birlestirme yapar
+            let total = +s1 + +s2;
+            document.getElementById("total").innerText = total;
+        }
+    </script>
+</body>
+
+</html>

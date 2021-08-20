@@ -1,0 +1,43 @@
+<!-- JavaScript: And Or -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="yuklendi()">
+    <span id="mesaj"></span>
+    <br>
+    Su anda ofis <span id="durum"></span>
+    <br>
+    <script>
+        function yuklendi() {
+            let tarih = new Date('2019-10-29T13:00:00');
+            let ay = tarih.getMonth();
+            let gun = tarih.getDate();
+            let saat = tarih.getHours();
+            let haftaGunu = tarih.getDay();
+            // haftaGunu = 0 => Pazar, haftaGunu = 6 => Cumartesi
+            let haftaSonuMu = haftaGunu == 6 || haftaGunu == 0;
+            let durumSpan = document.getElementById("durum");
+
+            if (ay == 9 && gun == 29) {
+                document.getElementById("mesaj").innerText = "Cumhuriyet Bayraminiz Kutlu Olsun.";
+            }
+
+            if (saat < 8 || saat > 18 || haftaSonuMu) {
+                durumSpan.innerText = "kapali";
+            } else {
+                durumSpan.innerText = "acik";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

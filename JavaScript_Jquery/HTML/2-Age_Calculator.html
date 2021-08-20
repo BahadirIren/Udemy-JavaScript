@@ -1,0 +1,40 @@
+<!-- JavaScript: Variables, If - else if -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="numberBirthDate">Dogum Yiliniz:</label>
+    <input type="text" name="name" id="textBirthDate">
+    <input type="button" name="name" value="Yasimi Hesapla" id="" onclick="calculateAge()">
+
+    <p>
+        Yasiniz: <span id="age"></span>
+    </p>
+    <p>Durum: <span id="status"></span></p>
+    <script>
+        function calculateAge() {
+            let enteredBirthDate = document.getElementById("textBirthDate").value;
+            let span = document.getElementById("age");
+            if (isNaN(enteredBirthDate)) {
+                span.innerText = "Lutfen sayisal bir deger giriniz!"
+            } else if (enteredBirthDate == 0) {
+                span.innerText = "Bir sayisal deger giriniz"
+            }
+            else {
+                let currentYear = new Date().getFullYear();  // gets current year
+                let age = currentYear - enteredBirthDate;
+                span.innerText = age;
+            }
+        }
+    </script>
+</body>
+
+</html>

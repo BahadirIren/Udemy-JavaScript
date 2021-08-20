@@ -1,0 +1,48 @@
+<!-- JavaScript: Switch Case -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Urun fiyati: 1000 TL</p>
+    <p>
+        Lutfen odeme yontemini seciniz:
+        <select id="selectPayment" onchange="change()">
+            <option value="0">Kredi Kartina taksitle</option>
+            <option value="1">Banka Havalesi</option>
+            <option value="2">Kapida Odeme</option>
+        </select>
+        <br>
+        Toplam Tutar: <span id="total"></span>
+    </p>
+    <script>
+        function change() {
+            let selectedValue = document.getElementById("selectPayment").value;
+            let total = 0;
+            switch (selectedValue) {
+                case "0":
+                    total = 1000 * 1.03;
+                    break;
+                case "1":
+                    total = 1000 * 1.01;
+                    break;
+                case "2":
+                    total = 1000;
+                    break;
+                default:
+                    break;
+            }
+            document.getElementById("total").innerText = total + " TL";
+
+        }
+    </script>
+</body>
+
+</html>

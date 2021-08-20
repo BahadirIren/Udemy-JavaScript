@@ -1,0 +1,32 @@
+<!-- JavaScript: While Loop -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="start()">
+    <select id="months"></select>
+    <script>
+        function start() {
+            let months = ["Ocak", "Subat", "Mart", "Nisan", "Mayis", "Haziran", "Temmuz",
+                "Agustos", "Eylul", "Ekim", "Kasim", "Aralik"];
+
+            let index = 0;
+            while (index < months.length) {
+                let option = document.createElement("option");
+                option.innerText = months[index++];
+                document.getElementById("months").appendChild(option);
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

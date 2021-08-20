@@ -1,0 +1,52 @@
+<!-- JavaScript: Functions -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #greet {
+            color: red;
+        }
+
+        .messageArea {
+            float: left;
+            width: 150px;
+            height: 50px;
+            border: 1px solid black;
+            border-radius: 15px;
+            background-color: silver;
+            margin: 30px;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="showMessage('greet','Merhaba Dunya')">Tiklayiniz..</button>
+    <button onclick="showMessage('added', 'Eklendi')">Ekle..</button>
+    <button onclick="showMessage('updated','Guncellendi')">Guncelle..</button>
+    <br>
+    <div class="messageArea">
+        <span id="greet"></span>
+    </div>
+    <div class="messageArea">
+        <span id="added"></span>
+    </div>
+    <div class="messageArea">
+        <span id="updated"></span>
+    </div>
+
+    <script>
+        function showMessage(id, message) {
+            document.getElementById(id).innerText = message;
+        }
+    </script>
+</body>
+
+</html>

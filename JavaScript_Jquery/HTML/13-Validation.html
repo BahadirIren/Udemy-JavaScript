@@ -1,0 +1,58 @@
+<!-- JavaScript: Validation -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .zorunlu {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/" method="post">
+        <div>
+            <label for="textKullaniciAdi">Kullanici Adi</label>
+            <br>
+            <input type="text" name="name" data-mesaj="Kullanici adi bos olamaz!" data-hedef="spKullaniciAdi"
+                id="textKullaniciAdi" value="" class="kontrol zorunlu">
+            <span id="spKullaniciAdi"></span>
+        </div>
+        <br>
+        <div>
+            <label for="textSifre">Sifre</label>
+            <br>
+            <input type="password" data-mesaj="sifre alani bos olamaz!" data-hedef="spSifre" name="name" id="textSifre"
+                value="" class="kontrol zorunlu">
+            <span id="spSifre"></span>
+        </div>
+        <br>
+        <div>
+            <label for="textSifre">Bulundugunuz Ulke</label>
+            <br>
+            <select class="kontrol zorunlu" id="ulkeler" data-mesaj="Lutfen ulke seciniz" data-hedef="spUlke">
+                <option value="">Seciniz</option>
+                <option value="1">Turkiye</option>
+                <option value="2">Almanya</option>
+            </select>
+            <span id="spUlke"></span>
+
+        </div>
+        <br>
+        <div>
+            <input type="submit" name="name" value="Kayit Ol" onclick="return denetle()">
+        </div>
+    </form>
+
+    <script src="/JavaScript/1-Validation.js"></script>
+
+</body>
+
+</html>
