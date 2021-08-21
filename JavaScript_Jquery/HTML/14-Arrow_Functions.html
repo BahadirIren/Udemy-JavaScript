@@ -1,0 +1,32 @@
+<!-- JavaScript: Arrow Functions -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="yuklendi()">
+
+    <script>
+        function yuklendi() {
+
+            let ciftMi = x => x % 2 == 0;
+            console.log(ciftMi(6));
+
+            let topla = (a, b) => a + b;
+            console.log(topla(6, 11));
+
+            let uyari = () => alert("arrow function");
+            uyari();
+
+        }
+    </script>
+
+</body>
+
+</html>

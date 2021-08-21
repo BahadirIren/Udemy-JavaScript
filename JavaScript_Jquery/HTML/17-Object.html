@@ -1,0 +1,77 @@
+<!-- JavaScript: Object -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            border-radius: 5px;
+            border-color: green;
+            color: red;
+        }
+    </style>
+</head>
+
+<body onload="yuklendi()">
+    <table id="table">
+
+    </table>
+    <script>
+        function yuklendi() {
+            let urun = {
+                ad: "Ayakkabi",
+                fiyat: 100,
+                kategori: "Giyim",
+                goster: function () {
+                    console.log(this.ad + " isimli urunun fiyati: " + this.fiyat + " TL");
+                },
+                kdvliFiyat: function (oran) {
+                    return this.fiyat * (1 + oran);
+                }
+            }
+
+            console.log(urun.ad);
+
+            console.log(urun);
+            urun.goster();
+            console.log(urun.ad + " isimli urunun %18 kdvli fiyati: " + urun.kdvliFiyat(0.18) + " TL");
+
+            let urunler = [
+                {
+                    ad: "Tisort",
+                    fiyat: 50,
+                    kategori: "Giyim"
+                },
+                {
+                    ad: "Sort",
+                    fiyat: 65,
+                    kategori: "Giyim"
+                }
+            ];
+
+            urunler.forEach(element => {
+                let tr = document.createElement("tr");
+                let urun = element;
+                for (let key in urun) {
+                    console.log(urun[key]);
+                    let td = document.createElement("td");
+                    td.innerText = urun[key];
+                    tr.appendChild(td);
+                }
+                document.getElementById("table").appendChild(tr);
+
+            });
+        }
+    </script>
+</body>
+
+</html>
