@@ -1,0 +1,164 @@
+<!-- JQuery DOM Operations, Filtreleme ve CSS Besleme -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .kitap {
+            float: left;
+            color: white;
+            background-color: #1290b2;
+            padding: 15px;
+            border-radius: 25px;
+            width: 200px;
+            height: 400px;
+            margin: 20px;
+            border: 1px solid black;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            background-color: indianred;
+            color: white;
+        }
+
+        a {
+            color: white;
+        }
+
+        .aciklama {
+            display: none;
+        }
+
+        .secili {
+            background-color: #e84d12;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="filtre">
+        <button class="yerli">Yerli</button>
+        <button class="yabanci">Yabanci</button>
+
+    </div>
+    <div id="kitaplar">
+        <ul>
+            <li class="kitap yabanci" data-fiyat="20">
+                <h2>Denizler Altinda 20.000 Fersah</h2>
+                <a href="#">Aciklamayi Gizle/Goster</a>
+                <div class="aciklama">
+                    <p>
+                        Jules Verne'nin 1870 yilinda yayimlanan bu romaninda, Kaptan Nemo'nun Nautilus adli
+                        denizaltisiyla yolculuga cikiyoruz.
+                    </p>
+                </div>
+                <button>Fiyati Goster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="20">
+                <h2>Denizler Altinda 20.000 Fersah</h2>
+                <a href="#">Aciklamayi Gizle/Goster</a>
+                <div class="aciklama">
+                    <p>
+                        Jules Verne'nin 1870 yilinda yayimlanan bu romaninda, Kaptan Nemo'nun Nautilus adli
+                        denizaltisiyla yolculuga cikiyoruz.
+                    </p>
+                </div>
+                <button>Fiyati Goster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="20">
+                <h2>Denizler Altinda 20.000 Fersah</h2>
+                <a href="#">Aciklamayi Gizle/Goster</a>
+                <div class="aciklama">
+                    <p>
+                        Jules Verne'nin 1870 yilinda yayimlanan bu romaninda, Kaptan Nemo'nun Nautilus adli
+                        denizaltisiyla yolculuga cikiyoruz.
+                    </p>
+                </div>
+                <button>Fiyati Goster</button>
+            </li>
+            <li class="kitap yabanci" data-fiyat="20">
+                <h2>Denizler Altinda 20.000 Fersah</h2>
+                <a href="#">Aciklamayi Gizle/Goster</a>
+                <div class="aciklama">
+                    <p>
+                        Jules Verne'nin 1870 yilinda yayimlanan bu romaninda, Kaptan Nemo'nun Nautilus adli
+                        denizaltisiyla yolculuga cikiyoruz.
+                    </p>
+                </div>
+                <button>Fiyati Goster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="20">
+                <h2>Denizler Altinda 20.000 Fersah</h2>
+                <a href="#">Aciklamayi Gizle/Goster</a>
+                <div class="aciklama">
+                    <p>
+                        Jules Verne'nin 1870 yilinda yayimlanan bu romaninda, Kaptan Nemo'nun Nautilus adli
+                        denizaltisiyla yolculuga cikiyoruz.
+                    </p>
+                </div>
+                <button>Fiyati Goster</button>
+            </li>
+            <li class="kitap yerli" data-fiyat="20">
+                <h2>Denizler Altinda 20.000 Fersah</h2>
+                <a href="#">Aciklamayi Gizle/Goster</a>
+                <div class="aciklama">
+                    <p>
+                        Jules Verne'nin 1870 yilinda yayimlanan bu romaninda, Kaptan Nemo'nun Nautilus adli
+                        denizaltisiyla yolculuga cikiyoruz.
+                    </p>
+                </div>
+                <button>Fiyati Goster</button>
+            </li>
+
+        </ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // tum butonlarin etkilenmemesi icin
+            $(".kitap").on("click", "button", function () {
+                let li = $(this).closest(".kitap");
+                let fiyat = li.data("fiyat");
+                let p = $("<p>" + fiyat + " TL</p>");
+                // let element = $("ul").children().first().next(); // boyle ulasabiliriz
+                // console.log(element);
+                // $("button").after(p);
+                li.append(p);
+                $(this).remove();
+            });
+
+            $("#filtre").on("click", ".yerli", function () {
+                $(".kitap").removeClass("secili");
+                // fonksiyon adinda class varsa onun icine .(nokta) koymaya gerek yok
+                $(".kitap").filter(".yerli").addClass("secili");
+            });
+
+            $("#filtre").on("click", ".yabanci", function () {
+                $(".kitap").removeClass("secili");
+                // fonksiyon adinda class varsa onun icine .(nokta) koymaya gerek yok
+                $(".kitap").filter(".yabanci").addClass("secili");
+            });
+        });
+
+    </script>
+
+</body>
+
+
+</html>
