@@ -1,4 +1,4 @@
-<!-- JQuery DOM Operations, Filtreleme ve CSS Besleme -->
+<!-- JQuery DOM Operations, Filtreleme ve CSS Besleme, Events, Animation -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,6 +46,12 @@
 
         .secili {
             background-color: #e84d12;
+        }
+
+        .animasyon {
+            top: 0px;
+            position: relative;
+            background-color: #1290b2;
         }
     </style>
 </head>
@@ -153,6 +159,35 @@
                 $(".kitap").removeClass("secili");
                 // fonksiyon adinda class varsa onun icine .(nokta) koymaya gerek yok
                 $(".kitap").filter(".yabanci").addClass("secili");
+            });
+
+            $(".kitap").on("click", "a", function (event) {
+                // link gibi davranma buton gibi davran diyoruz.
+                // sayfayi yeniledigi icin en alttayken sayfa en uste gidiyor. Bunu engelledik
+                event.preventDefault();
+                let p = $(this).closest(".kitap").find(".aciklama");
+                // $(p).slideToggle();
+                if ($(p).is(":hidden")) {
+                    $(p).slideDown();
+                    $(this).text("Gizle");
+                } else {
+                    $(p).slideUp();
+                    $(this).text("Goster");
+                }
+            });
+
+            let tiklandiMi = false;
+            $(".kitap").on("click", function () {
+                if (!tiklandiMi) {
+                    $(this).addClass("animasyon");
+                    $(this).animate({ "top": "-20px" }, 500);
+                    tiklandiMi = true;
+                } else {
+                    $(this).addClass("animasyon");
+                    $(this).animate({ "top": "0px" }, 500);
+                    tiklandiMi = false;
+                }
+
             });
         });
 

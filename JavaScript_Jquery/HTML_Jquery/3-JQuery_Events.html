@@ -34,6 +34,20 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
     <script>
+        $(document).ready(function () {
+            $("#textAdet").on("keyup", hesapla);
+            $("#textAdet").on("change", hesapla);
+            $("#goster").on("mouseenter", function () {
+                $(".gizli").fadeToggle(1000);
+            });
+        });
+
+        function hesapla() {
+            let fiyat = +$("#satisOnay").data("fiyat");
+            let adet = +$(this).val();
+            let sonuc = fiyat * adet;
+            $("#sonuc").text(sonuc);
+        };
 
     </script>
 </body>
